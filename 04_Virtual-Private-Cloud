@@ -1,17 +1,19 @@
 ## What is a Virtual Private Cloud (VPC)?
 
 - A virtual private cloud (VPC) is a virtual network dedicated to your AWS account. It allows you to launch AWS resources, such as EC2 instances, in a logically isolated section of the AWS cloud.
-- A real life example of a VPC is like having your own private network in the cloud. You can define your own IP address range, create subnets, and configure route tables and network gateways. This gives you complete control over your virtual networking environment.
+
+- A real life example of a VPC is like having your own private network in the cloud. You can define your own IP address range, create subnets,and configure route tables and network gateways. This gives you complete control over your virtual networking environment.
+
+
 - An analogy of VPC is like having your own private data center in the cloud. Just like you would have your own physical servers, switches, and routers in a traditional data center, you can create and manage your own virtual resources in a VPC.
 
 🏠 Real-Life Analogy
 
 Think of AWS like a big city 🏙️
-
 The city = AWS cloud
 Your VPC = your private house 🏠
 
-Inside your house:
+Inside your house
 
 Rooms = Subnets
 Doors/windows locks = Security Groups
@@ -20,6 +22,14 @@ Roads = Routing tables
 
 👉 Only people you allow can enter your house
 👉 You control everything inside
+
+
+### Without VPC (old EC2-Classic)
+
+- “You live in a hostel where the rooms already exist in a fixed design made by the owner. You can use a room, but you cannot change the building structure, layout, or network design rules.”
+
+- Without VPC (old EC2-Classic)
+“You live in a hostel where the rooms already exist in a fixed design made by the owner. You can use a room, but you cannot change the building structure, layout, or network design rules.”
 
 A VPC has an range of IP addresses that you can define, and you can create subnets within that range to organize your resources.
 So, the flow of the VPC is like this:
@@ -39,21 +49,10 @@ So, the flow of the VPC is like this:
 - Security Groups: A security group acts as a virtual firewall for your EC2 instances to control inbound and outbound traffic. You can specify rules that allow or deny traffic based on protocols, ports, and source/destination IP addresses. Security groups are stateful, meaning that if you allow an incoming request from a specific IP address and port, the response traffic is automatically allowed, regardless of outbound  rules. This makes it easier to manage and secure your instances in the VPC.
 
 
-## What are the NACLs in VPC?
-- NACLs (Network Access Control Lists) are another layer of security in a VPC
-- NACLs are stateless, meaning that they evaluate each request independently, without considering the state of the connection. This means that if you allow an incoming request from a specific IP address and port, the response traffic will not be automatically allowed, and you will need to create a separate rule to allow the response traffic.
-- NACLs operate at the subnet level, while security groups operate at the instance level. This means that NACLs apply to all instances within a subnet, while security groups can be applied to individual instances. NACLs are evaluated before security groups, so if a request is denied by a NACL, it will not reach the security group for evaluation. This allows you to create a layered security approach, where you can use NACLs to provide a broad level of security for your subnets, and then use security groups to provide more granular control for your instances.
-
-
-## What is NAT Gateway in VPC?
-- A NAT (Network Address Translation) gateway is a managed service that allows instances in a private subnet to connect to the internet or other AWS services, while preventing inbound traffic from the internet from reaching those instances. It acts as a bridge between the private subnet and the internet, allowing outbound traffic to flow from the private subnet to the internet, while blocking any inbound traffic from the internet to the private subnet.
-- Inbound traffic is simply traffic that originates from outside the VPC and is destined for resources within the VPC.
-- Outbound traffic is traffic that originates from resources within the VPC and is destined for destinations outside the VPC, such as the internet or other AWS services.
-- A NAT gateway allows instances in a private subnet to initiate outbound traffic to the internet while preventing any inbound traffic from the internet from reaching those instances, providing a secure way for instances in a private subnet to access external resources without exposing them to potential threats from the internet.
-
-
 ## VPC Flow Logs
-
 - VPC Flow Logs is a feature that allows you to capture information about the IP traffic going to and from network interfaces in your VPC. It provides detailed visibility into the traffic patterns and can be used for troubleshooting, monitoring, and security analysis.
 - VPC Flow Logs can capture information such as the source and destination IP addresses, ports, protocol, and the action taken (accept or reject) for each traffic flow. This information can be used to identify potential security threats, troubleshoot connectivity issues, and analyze traffic patterns for optimization.
 - VPC Flow Logs can be published to Amazon CloudWatch Logs or Amazon S3 for storage and analysis.
+
+
+![VPC Flow Diagram](./ss//vpc-flow.png)
