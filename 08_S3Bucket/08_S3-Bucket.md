@@ -16,7 +16,7 @@ Why use S3 buckets?
 
 Key benefits of S3 buckets
 
-   -  Durability and availability: S3 provides high durability and availability for your data.
+   - Durability and availability: S3 provides high durability and availability for your data.
    - Scalability: You can store and retrieve any amount of data without worrying about capacity constraints.
    - Security: S3 offers multiple security features such as encryption, access control, and audit logging.
    - Performance: S3 is designed to deliver high performance for data retrieval and storage operations.
