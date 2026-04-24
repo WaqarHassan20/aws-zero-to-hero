@@ -1,0 +1,7 @@
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "template.s3.bucket.waqar.example.com"
+      VersioningConfiguration:
+        Status: Enabled
